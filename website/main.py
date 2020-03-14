@@ -1,9 +1,10 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, make_response
 from data import getPosts, createPost
 from idGenerator import idGenerator
 import os
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.urandom(16)
 
 def getUserData():
     path = os.path.relpath('data\\userData.dat', os.path.dirname(__file__))
@@ -31,30 +32,32 @@ def login():
 @app.route('/verification', methods=['POST'])
 def verification():
     userdata = getUserData()
-    username = request.form['username']
+    user = request.form['username']
     password = request.form['password']
-    if (username in userdata):
-        if (password == userdata[username]['password']):
-            return redirect('home')
+    if (user in userdata):
+        if (password == userdata[user]['password']):
+            #TODO MAKE COOKIE HERE
+            response = make_response(redirect(url_for('mainScreen', username=user)))
+            return response
     return redirect('login')
 
-@app.route('/home', methods=['GET'])
-def mainScreen():
+@app.route('/<username>/home', methods=['GET'])
+def mainScreen(username):
     posts = getPosts()
-    return render_template('home.html', posts=posts)
+    return render_template('home.html', username=username, posts=posts)
 
-@app.route('/newpost', methods=['GET'])
-def newPost():
-    return render_template('newPost.html')
+@app.route('/<username>/newpost', methods=['GET'])
+def newPost(username):
+    return render_template('newPost.html', username=username)
 
-@app.route('/createpost', methods=['POST'])
-def createpost():
+@app.route('/<username>/createpost', methods=['POST'])
+def createpost(username):
     content = request.form['post_input']
     title = request.form['title']
     author = 'Henrik'
     date = '14.03.2020'
     createPost(author, date, title, content)
-    return redirect('home')
+    return redirect(url_for('mainScreen', username=username))
 
 
 if __name__ == '__main__':
