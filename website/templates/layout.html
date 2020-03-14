@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>Steephill</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- JQuery -->
@@ -35,11 +35,33 @@
           </ul>
 
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Username</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Log out</button>
           </form>
-
+          
         </div>
 
       </nav>
+
+      <div class="row">
+        <div class="col-md-8">
+          {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>News</h3>
+            <p class='text-muted'>The latest updates
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Yeh sirf thoda likhavatt hai</li>
+                <li class="list-group-item list-group-item-light">Aapka swaagat hai</li>
+                <li class="list-group-item list-group-item-light">Aapka din accha bite</li>
+                <li class="list-group-item list-group-item-light">Sher ki kahaani suniye sher ki zubani</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+
+
 </body>
