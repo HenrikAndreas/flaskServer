@@ -1,0 +1,39 @@
+#login-background {
+    background-image: url('wallpaper.jpg');
+}
+
+.dropdown-menu {
+    background-color: #343A40;
+}
+
+.dropdown-menu a {
+    color: white;
+}
+.content-section {
+    color: white;
+    background-color: #000;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    opacity: 0.9;
+
+
+  }
+
+.content-section a {
+    color: white;
+}
+
+.content-section h3 {
+    color: white;
+}
+.list-group-item-light {
+    color: #343A40;
+    background-color: #fdfdfe;
+}
+.text-muted {
+    color: #fff!important;
+}
+
