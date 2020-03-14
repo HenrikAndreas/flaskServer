@@ -4,10 +4,13 @@ body {
 }
 
 
-
+.list-group-item-light {
+    background: #212121!important;  
+    color: #fff!important;
+}
 .content-section {
-    background: #ffffff;
-    color: #101010;
+    background: #343a40;
+    color: #fff;
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
@@ -17,19 +20,22 @@ body {
 .btn {
     margin-left: 5px;
 }
+.author {
+    color: #fff!important;
+}
 
 .article-title {
-    color: #444444;
+    color: #fff;
 }
   
 a.article-title:hover {
-    color: #428bca;
+    color: #007bff;
     text-decoration: none;
 }
   
 .article-content {
     white-space: pre-line;
-    color: #101010;
+    color: #fff;
 }
   
 .article-img {
