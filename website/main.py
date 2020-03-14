@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
-
+from data import getPosts, createPost
 
 
 app = Flask(__name__)
@@ -17,7 +17,10 @@ def newPost():
 @app.route('/createpost', methods=['POST'])
 def createpost():
     content = request.form['post_input']
-    title = request.form['title'] 
+    title = request.form['title']
+    author = 'Henrik'
+    date = '14.03.2020'
+    createPost(author, date, title, content)
     return redirect('home')
 
 
