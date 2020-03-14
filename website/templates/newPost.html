@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="col-md-8">
+    <form class="content-section" method="POST" action="{{url_for('createpost')}}">
+      <h3>Write a new post!</h3>
+      <p class='text-muted'>Title
+        <ul class="list-group">
+            <input name="title" id="title" type="text" value=""></input>
+
+        </ul>
+      </p>
+      <p class='text-muted'>Post content
+        <ul class="list-group">
+            <textarea name="post_input" id="post_input" type="text" cols="40" rows="5" value=""></textarea>
+        </ul>
+    </p>
+    <button class="btn btn-outline-primary">Create Post</button>
+    </div>
+</form>
+
+
+
+{% endblock content %}
