@@ -2,7 +2,9 @@ body {
     background-color: #101010!important;
     color: #ffffff!important;
 }
-
+a {
+    color: fff;
+}
 
 .list-group-item-light {
     background: #212121!important;  
