@@ -1,8 +1,7 @@
 import os
 
-
-
 def getPosts():
+    # Getting relative path 
     path = os.path.relpath('data\\posts.dat', os.path.dirname(__file__))
 
     database = open(path, 'r')
@@ -17,3 +16,12 @@ def getPosts():
         posts.append(post) #Appending each individual post to a list of posts
     database.close()
     return posts
+
+def createPost(author, date, title, content):
+    path = os.path.relpath('data\\posts.dat', os.path.dirname(__file__))
+    database = open(path, 'a') 
+    database.write(f'{author},{date},{title},{content}\n')
+    database.close()
+
+    
+
