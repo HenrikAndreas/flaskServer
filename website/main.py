@@ -48,7 +48,7 @@ def mainScreen(username):
     userdata = getUserData();
     idCookie = request.cookies.get('id')
     if (idCookie == userdata[username]['id']):
-        posts = getPosts() # Revert the order!
+        posts = getPosts()
         return render_template('home.html', username=username, posts=posts)
         
     return "Access denied"
@@ -67,9 +67,8 @@ def newPost(username):
 def createpost(username):
     content = request.form['post_input']
     title = request.form['title']
-    author = 'Henrik'
-    date = '14.03.2020'
-    createPost(author, date, title, content)
+    author = username
+    createPost(author, title, content)
     return redirect(url_for('mainScreen', username=username))
 
 
