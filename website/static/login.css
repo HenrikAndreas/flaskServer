@@ -18,8 +18,6 @@
     margin-bottom: 20px;
     margin-top: 20px;
     opacity: 0.9;
-
-
   }
 
 .content-section a {
@@ -37,3 +35,11 @@
     color: #fff!important;
 }
 
+#dangerPassword {
+    float: right;
+    visibility: hidden;
+}
+#dangerUsername {
+    float: right;
+    visibility: hidden;
+}
