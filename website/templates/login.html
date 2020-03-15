@@ -19,10 +19,13 @@
                         <div>
                             <p>Username</p>
                             <input name="username" id="username" type="text" value=""></input>
+                            <button disabled id ="dangerUsername" class="btn btn-outline-danger"></button>
                         </div>
                         <div>
                             <p>Password</p>
                             <input name="password" id="password" type="password" value=""></input>
+                            <button disabled id="dangerPassword" class="btn btn-outline-danger""></button>
+
                         </div>
                         <div style="margin-top: 10px;">
                             <button id="loginButton" class="btn btn-outline-primary">Log in</button>
@@ -43,8 +46,13 @@
         </main>
     </body>
 
-      <!-- Optional JavaScript -->
+      <!-- JavaScript -->
       <script src="{{url_for('static', filename='loginCheck.js')}}"></script>
+      <script>
+          var userValidator = '{{userValidator}}'
+          var passwrdValidator = '{{passwrdValidator}}'
+          checkCredentials(userValidator, passwrdValidator);
+      </script>
 
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

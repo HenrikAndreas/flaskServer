@@ -1,15 +1,31 @@
 // Checking for valid credentials
-
-// Sjekk dette i ektetid!
-function checkForMatch() {
-    var username = document.getElementById('username');
-    var password = document.getElementById('password');
-    // You're onto something henrik, keep going!
-    if (username.value.length > 1) {
-        document.getElementById("loginButton").disabled = false;
-    } else {
-        document.getElementById("loginButton").disabled = true;
-    }
+function init(){
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var dangerUsername = document.getElementById('dangerUsername');
+    var dangerPassword = document.getElementById('dangerPassword');
+    
+    dangerUsername.style.visibility = "hidden";
+    dangerPassword.style.visibility = "hidden";
+    dangerUsername.disabled = true;
+    dangerPassword.disabled = true;
 }
 
-setInterval(checkForMatch, 40)
+function checkCredentials(userValidator, passwordValidator) {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var dangerUsername = document.getElementById('dangerUsername');
+    var dangerPassword = document.getElementById('dangerPassword');
+
+    if (userValidator === "True") {
+        if (passwordValidator === "False") {
+            dangerPassword.innerHTML = "Incorrect Password";
+            dangerPassword.style.visibility = "visible";
+        }
+    } else if (userValidator === "False") {
+        dangerUsername.innerHTML = "Username non existent";
+        dangerUsername.style.visibility = "visible";
+    }
+
+}
+

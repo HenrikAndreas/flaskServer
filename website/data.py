@@ -2,7 +2,7 @@ import os
 
 def getPosts():
     # Getting relative path 
-    path = os.path.relpath('data\\posts.dat', os.path.dirname(__file__))
+    path = os.path.relpath('static\\data\\posts.dat', os.path.dirname(__file__))
 
     database = open(path, 'r')
     posts = []
@@ -18,10 +18,30 @@ def getPosts():
     return posts
 
 def createPost(author, date, title, content):
-    path = os.path.relpath('data\\posts.dat', os.path.dirname(__file__))
+    path = os.path.relpath('static\\data\\posts.dat', os.path.dirname(__file__))
     database = open(path, 'a') 
     database.write(f'{author},{date},{title},{content}\n')
     database.close()
+
+
+def getUserData():
+    path = os.path.relpath('static\\data\\userData.dat', os.path.dirname(__file__))
+    userdata = open(path, 'r')
+    userdata.readline()
+    users = {}
+    for line in userdata:
+        currentLine = line.rstrip().lstrip().split(',')
+        users[currentLine[0]] = {'password' : currentLine[1], 'id' : currentLine[2]}
+    return users
+
+
+def addNewUser(username, password):
+    path = os.path.relpath('static\\data\\userData.dat', os.path.dirname(__file__))
+    userdata = open(path, 'a')
+    userID = idGenerator()
+    userdata.write(f'{username},{password},{userID}\n')
+    userdata.close()
+
 
     
 
