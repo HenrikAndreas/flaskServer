@@ -48,7 +48,7 @@ def getUserData():
     if (os.name == 'nt'):
         path = os.path.relpath('static\\data\\userData.dat', os.path.dirname(__file__))
     elif (os.name == 'posix'):
-        path = os.path.relpath('static/data/posts.dat', os.path.dirname(__file__))
+        path = os.path.relpath('static/data/userData.dat', os.path.dirname(__file__))
     userdata = open(path, 'r')
     userdata.readline()
     users = {}
@@ -60,9 +60,9 @@ def getUserData():
 
 def addNewUser(username, password):
     if (os.name == 'nt'):
-        path = os.path.relpath('static\\data\\posts.dat', os.path.dirname(__file__))
+        path = os.path.relpath('static\\data\\userData.dat', os.path.dirname(__file__))
     elif (os.name == 'posix'):
-        path = os.path.relpath('static/data/posts.dat', os.path.dirname(__file__))
+        path = os.path.relpath('static/data/userData.dat', os.path.dirname(__file__))
     userdata = open(path, 'a')
     userID = idGenerator()
     userdata.write(f'{username},{password},{userID}\n')
