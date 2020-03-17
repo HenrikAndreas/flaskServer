@@ -42,6 +42,16 @@ def verification():
     session['passwordValidator'] = False
     return redirect(url_for('login'))
 
+@app.route('/registration', methods=['GET'])
+def registration():
+    return render_template('registration.html')
+
+@app.route('/register-verification', methods=['POST'])
+def registerVerification():
+    usedata = getUserData()
+    username = request.form['username']
+    password = request.form['password']
+    addNewUser()
 
 @app.route('/<username>/home', methods=['GET'])
 def mainScreen(username):

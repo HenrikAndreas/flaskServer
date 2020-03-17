@@ -12,13 +12,19 @@
     <button disabled id="dangerPassword" class="btn btn-outline-danger""></button>
 
 </div>
+<div>
+    <p>Confirm Password</p>
+    <input name="connf_password" id="conf_password" type="password" value=""></input>
+    <button disabled id="dangerPassword" class="btn btn-outline-danger""></button>
+
+</div>
 <div style="margin-top: 10px;">
-    <button id="loginButton" class="btn btn-outline-primary">Log in</button>
+    <button id="loginButton" class="btn btn-outline-primary">Sign up</button>
 </div>
 {% endblock content%}
 
 {%block signup%} 
-Don't have an account? <a class=ml-2" href="{{url_for('registration')}}">Sign Up</a>
+Already have an account? <a class=ml-2" href="{{url_for('login')}}">Log in!</a>
 {% endblock signup %}
 
 
