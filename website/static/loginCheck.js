@@ -1,16 +1,5 @@
 // Checking for valid credentials
-function init(){
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-    var dangerUsername = document.getElementById('dangerUsername');
-    var dangerPassword = document.getElementById('dangerPassword');
-    
-    dangerUsername.style.visibility = "hidden";
-    dangerPassword.style.visibility = "hidden";
-    dangerUsername.disabled = true;
-    dangerPassword.disabled = true;
-}
-
+// Getting parameters from python - main and passed into html as a script parameter
 function checkCredentials(userValidator, passwordValidator) {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
@@ -26,6 +15,5 @@ function checkCredentials(userValidator, passwordValidator) {
         dangerUsername.innerHTML = "Username non existent";
         dangerUsername.style.visibility = "visible";
     }
-
 }
 
