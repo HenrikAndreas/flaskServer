@@ -4,7 +4,10 @@ from idGenerator import idGenerator
 
 def getPosts():
     # Getting relative path 
-    path = os.path.relpath('static\\data\\posts.dat', os.path.dirname(__file__))
+    if (os.name == 'nt'):
+        path = os.path.relpath('static\\data\\posts.dat', os.path.dirname(__file__))
+    elif (os.name == 'posix'):
+        path = os.path.relpath('static/data/posts.dat', os.path.dirname(__file__))
 
     database = open(path, 'r')
     posts = []
@@ -27,8 +30,11 @@ def getPosts():
 def createPost(author, title, content):
     date = datetime.date.today()
     date = date.strftime("%d.%m.%Y")
+    if (os.name == 'nt'):
+        path = os.path.relpath('static\\data\\posts.dat', os.path.dirname(__file__))
+    elif (os.name == 'posix'):
+        path = os.path.relpath('static/data/posts.dat', os.path.dirname(__file__))
 
-    path = os.path.relpath('static\\data\\posts.dat', os.path.dirname(__file__))
     database = open(path, 'a')
 
     #Replacing all linebreaks with a '#'. Replacing them back to linebreaks when printing posts out
@@ -39,7 +45,10 @@ def createPost(author, title, content):
 
 
 def getUserData():
-    path = os.path.relpath('static\\data\\userData.dat', os.path.dirname(__file__))
+    if (os.name == 'nt'):
+        path = os.path.relpath('static\\data\\userData.dat', os.path.dirname(__file__))
+    elif (os.name == 'posix'):
+        path = os.path.relpath('static/data/posts.dat', os.path.dirname(__file__))
     userdata = open(path, 'r')
     userdata.readline()
     users = {}
@@ -50,7 +59,10 @@ def getUserData():
 
 
 def addNewUser(username, password):
-    path = os.path.relpath('static\\data\\userData.dat', os.path.dirname(__file__))
+    if (os.name == 'nt'):
+        path = os.path.relpath('static\\data\\posts.dat', os.path.dirname(__file__))
+    elif (os.name == 'posix'):
+        path = os.path.relpath('static/data/posts.dat', os.path.dirname(__file__))
     userdata = open(path, 'a')
     userID = idGenerator()
     userdata.write(f'{username},{password},{userID}\n')
