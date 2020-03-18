@@ -44,14 +44,36 @@ def verification():
 
 @app.route('/registration', methods=['GET'])
 def registration():
-    return render_template('registration.html')
+    try:
+        usernameValidator = session['usernameExists']
+        passwordValidator = session['passwordValid']
+        return render_template('registration.html', userExists=usernameValidator,
+            passwordValid=passwordValidator)
+    except:
+        return render_template('registration.html')
 
 @app.route('/register-verification', methods=['POST'])
 def registerVerification():
-    usedata = getUserData()
+    userdata = getUserData()
     username = request.form['username']
     password = request.form['password']
-    addNewUser()
+    confPassword = request.form['conf_password']
+    if (username in userdata):
+        session['usernameExists'] = True
+        session['passwordValid'] = None
+        return redirect(url_for('registration'))
+    else:
+        if (password != confPassword):
+            session['usernameExists'] = False
+            session['passwordValid'] = False
+            return redirect(url_for('registration'))
+
+        else:
+            session['usernameExists'] = False
+            session['passwordValid'] = True
+            addNewUser(username, password)
+
+    return redirect(url_for('login'))
 
 @app.route('/<username>/home', methods=['GET'])
 def mainScreen(username):

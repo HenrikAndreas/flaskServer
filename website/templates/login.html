@@ -1,19 +1,26 @@
 {% extends 'loginLayout.html' %}
 {% block content %}
-<legend class="border-bottom mb-4">Login</legend>
-<div>
-    <p>Username</p>
-    <input name="username" id="username" type="text" value=""></input>
-    <button disabled id ="dangerUsername" class="btn btn-outline-danger"></button>
-</div>
-<div>
-    <p>Password</p>
-    <input name="password" id="password" type="password" value=""></input>
-    <button disabled id="dangerPassword" class="btn btn-outline-danger""></button>
+<form method="POST" action="{{url_for('verification')}}">
+    <fieldset class="form-group">
 
-</div>
-<div style="margin-top: 10px;">
-    <button id="loginButton" class="btn btn-outline-primary">Log in</button>
+        <legend class="border-bottom mb-4">Login</legend>
+        <div>
+            <p>Username</p>
+            <input name="username" id="username" type="text" value=""></input>
+            <button disabled id ="dangerUsername" class="btn btn-outline-danger"></button>
+        </div>
+        <div>
+            <p>Password</p>
+            <input name="password" id="password" type="password" value=""></input>
+            <button disabled id="dangerPassword" class="btn btn-outline-danger""></button>
+
+        </div>
+        <div style="margin-top: 10px;">
+            <button id="loginButton" class="btn btn-outline-primary">Log in</button>
+        </div>
+    </fieldset>
+</form> 
+            
 </div>
 {% endblock content%}
 

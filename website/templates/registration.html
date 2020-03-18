@@ -1,26 +1,30 @@
 {% extends 'loginLayout.html' %}
 {% block content %}
-<legend class="border-bottom mb-4">Login</legend>
-<div>
-    <p>Username</p>
-    <input name="username" id="username" type="text" value=""></input>
-    <button disabled id ="dangerUsername" class="btn btn-outline-danger"></button>
-</div>
-<div>
-    <p>Password</p>
-    <input name="password" id="password" type="password" value=""></input>
-    <button disabled id="dangerPassword" class="btn btn-outline-danger""></button>
+<form method="POST" action="{{url_for('registerVerification')}}">
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Login</legend>
+        <div>
+            <p>Username</p>
+            <input name="username" id="username" type="text" value=""></input>
+            <button disabled id ="dangerUsername" class="btn btn-outline-danger"></button>
+        </div>
+        <div>
+            <p>Password</p>
+            <input name="password" id="password" type="password" value=""></input>
+            <button disabled id="dangerPassword" class="btn btn-outline-danger""></button>
 
-</div>
-<div>
-    <p>Confirm Password</p>
-    <input name="connf_password" id="conf_password" type="password" value=""></input>
-    <button disabled id="dangerPassword" class="btn btn-outline-danger""></button>
+        </div>
+        <div>
+            <p>Confirm Password</p>
+            <input name="conf_password" id="conf_password" type="password" value=""></input>
+            <button disabled id="dangerConfPassword" class="btn btn-outline-danger""></button>
 
-</div>
-<div style="margin-top: 10px;">
-    <button id="loginButton" class="btn btn-outline-primary">Sign up</button>
-</div>
+        </div>
+        <div style="margin-top: 10px;">
+            <button id="loginButton" disabled class="btn btn-outline-primary">Sign up</button>
+        </div>
+    </fieldset>
+</form>
 {% endblock content%}
 
 {%block signup%} 
@@ -30,11 +34,12 @@ Already have an account? <a class=ml-2" href="{{url_for('login')}}">Log in!</a>
 
 {% block script %}
       <!-- JavaScript -->
-      <script src="{{url_for('static', filename='loginCheck.js')}}"></script>
+      <script src="{{url_for('static', filename='registrationCheck.js')}}"></script>
       <script>
-          var userValidator = '{{userValidator}}'
-          var passwrdValidator = '{{passwrdValidator}}'
-          checkCredentials(userValidator, passwrdValidator);
+          var userExists = '{{userExists}}'
+          var passwordValid = '{{passwordValid}}'
+          verifyRegistration(userExists, passwordValid);
+     
       </script>
 {% endblock script %}
 
