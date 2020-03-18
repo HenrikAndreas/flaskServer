@@ -8,10 +8,10 @@ News:
 - Added navbar
 - Added function to post text
 - Added login system
-- Added registration system
+- Added registration system (fixed crash bug)
 
 Upcoming
 - profile picture
 - file download system
-- mechatronic relay
+- mechatronic relay 
 - socket to microcontrol function (RPi.GPiO)
