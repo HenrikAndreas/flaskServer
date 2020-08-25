@@ -1,7 +1,4 @@
-# robotServer
-This is a robotics experiment, where I try to create a webserver that also functions as a moveable robot.
-If you're interested and want to download this server, after cloning use this command 'pip -r install requirements.txt' after you've navigated to this folder.
-
+# flaskServer (improved)
 
 News:
 - Added navbar
@@ -12,4 +9,4 @@ News:
 Upcoming
 - file download system
 - mechatronic relay 
-- socket to microcontrol function (RPi.GPiO)
+
